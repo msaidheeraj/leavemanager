@@ -1,0 +1,59 @@
+const handleSubmit = async (e) => {
+    e.preventDefault();
+    await axios
+      .post("http://localhost:35025/api/Login", {
+        email: name,
+        password: password,
+      })
+      .then((res) => {
+        UserType = res.data.type;
+        token = res.data.token;
+      });
+
+
+
+      
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { Container } from "react-bootstrap";
+import { useState } from "react";
+import "./css/Login.css";
+
+export default function ApplyForLeave(){
+
+    const disableDays = (date) => date.getDay() !== 0 && date.getDay() !== 6;
+    const [leaveDate, setLeaveDate] = useState(
+      new Date(+new Date() + 86400000)
+    );
+
+   return (
+     <Container className="d-flex login">
+       <form>
+         <div className="form-group">
+           <label>Select Date</label>
+           <DatePicker
+             className="form-group"
+             filterDate={disableDays}
+             placeholderText="Select a date"
+             selected={leaveDate}
+             onChange={(date) => setLeaveDate(date)}
+             minDate={new Date(+new Date() + 86400000)}
+             dateFormat="dd-MM-yyyy"
+           />
+         </div>
+         <div className="form-group">
+           <label>Reason </label>
+           <textarea
+             className="form-control"
+             id="exampleFormControlTextarea1"
+             rows="3"
+           ></textarea>
+         </div>
+
+         <button type="submit" className="btn btn-primary">
+           Submit
+         </button>
+       </form>
+     </Container>
+   );
+}

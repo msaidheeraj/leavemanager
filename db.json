@@ -1,0 +1,27 @@
+{
+    "users": [
+        {
+            "email": "sai@gmail.com",
+            "password": "$2a$10$Rw6OyNrRvK4GSGpAcTje5eYiauqd1r8Y4xGvZJiEL7v46V33Xi/I2",
+            "id": 1,
+            "type": "admin"
+        }
+    ],
+    "posts": [
+        {
+            "id": 1,
+            "title": "json-server",
+            "author": "typicode"
+        }
+    ],
+    "comments": [
+        {
+            "id": 1,
+            "body": "some comment",
+            "postId": 1
+        }
+    ],
+    "profile": {
+        "name": "typicode"
+    }
+}
